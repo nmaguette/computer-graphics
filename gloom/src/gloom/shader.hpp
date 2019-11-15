@@ -11,7 +11,6 @@
 #include <memory>
 #include <string>
 
-
 namespace Gloom
 {
     class Shader
@@ -90,7 +89,7 @@ namespace Gloom
         void makeBasicShader(std::string const &vertexFilename,
                              std::string const &fragmentFilename)
         {
-            attach(vertexFilename);
+			attach(vertexFilename);
             attach(fragmentFilename);
             link();
         }
