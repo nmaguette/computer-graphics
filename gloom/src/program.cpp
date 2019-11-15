@@ -134,11 +134,11 @@ void runProgram(GLFWwindow* window)
 	glEnable(GL_BLEND); 
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-	// Set up your scene here (create Vertex Array Objects, etc.) C:/Users/nmagu/Google Drive (nmaguettembaye@gmail.com)/GitHub/computer-graphics
+	// Set up your scene here (create Vertex Array Objects, etc.)
 	float4 tileColour1 = float4(0.0f, 0.0f, 0.0f, 1.0f);
 	float4 tileColour2 = float4(1.0f, 1.0f, 1.0f, 1.0f);
-	Mesh chess = generateChessboard(7, 5, 20.0f, tileColour1, tileColour2);
-	MinecraftCharacter character = loadMinecraftCharacterModel(".\\steve.obj");
+	Mesh chess = generateChessboard(7, 5, 20.0f, tileColour1, tileColour2); 
+	MinecraftCharacter character = loadMinecraftCharacterModel("./gloom/src/steve.obj");  
 	unsigned int vaoChess = vertexArrayObject(chess.vertices, chess.vertices.size() * 4 * sizeof(float), chess.indices, chess.indices.size() * sizeof(unsigned int), chess.colours, chess.colours.size() * 4 * sizeof(float));
 	unsigned int vaoHead = vertexArrayObject(character.head.vertices, character.head.vertices.size() * 4 * sizeof(float), character.head.indices, character.head.indices.size() * sizeof(unsigned int), character.head.colours, character.head.colours.size() * 4 * sizeof(float));
 	unsigned int vaoTorso = vertexArrayObject(character.torso.vertices, character.torso.vertices.size() * 4 * sizeof(float), character.torso.indices, character.torso.indices.size() * sizeof(unsigned int), character.torso.colours, character.torso.colours.size() * 4 * sizeof(float));
@@ -195,10 +195,10 @@ void runProgram(GLFWwindow* window)
 	leftLegNode->referencePoint = float3(-2.0f, 12.0f, 0.0f);
 	rightLegNode->referencePoint = float3(-6.0f, 12.0f, 0.0f);
 
-	Path* pathChess = new Path("./pathFiles/coordinates_0.txt");
+	Path* pathChess = new Path("./gloom/src/pathFiles/coordinates_0.txt");
 
 	Gloom::Shader shader;
-	shader.makeBasicShader("././shaders/simple.vert", "././shaders/simple.frag");
+	shader.makeBasicShader("./gloom/shaders/simple.vert", "./gloom/shaders/simple.frag");
 	printGLError();
 	shader.activate();
 	
